@@ -83,7 +83,7 @@ func CleanLogs() gin.HandlerFunc {
 					return
 				}
 			}
-			c.AbortWithStatus(http.StatusNotFound)
+			c.AbortWithStatus(http.StatusMethodNotAllowed)
 		}
 	}
 
@@ -98,7 +98,7 @@ func CleanLogs() gin.HandlerFunc {
 
 			for _, p := range deny {
 				if p.Contains(reqRemoteIP) {
-					c.AbortWithStatus(http.StatusNotFound)
+					c.AbortWithStatus(http.StatusMethodNotAllowed)
 					return
 				}
 			}
